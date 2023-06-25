@@ -1,0 +1,30 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/todos/0
+Accept: application/json
+
+
+###
+
+GET http://127.0.0.1:8000/todos/1
+Accept: application/json
+
+###
+#
+#POST http://127.0.0.1:8000/todos/create
+#Content-Type: application/json
+#Data-Raw: {
+#  "id_": "1",
+#  "name": "Test",
+#  "description": "Test"
+#}
+
+###
+
+DELETE http://127.0.0.1:8000/todos/1
+Accept: application/json
