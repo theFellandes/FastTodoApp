@@ -4,11 +4,13 @@ from pydantic import BaseModel, Extra
 class SQLConnector(BaseModel):
     class Config:
         extra = Extra.forbid
-    host: str
-    port: int
-    user: str
-    password: str
-    database: str
+    _host: str
+    _port: str
+    _user: str
+    _password: str
+    _database: str
+    _connection: object
+    _cursor: object
 
     def __enter__(self):
         self.connect()
