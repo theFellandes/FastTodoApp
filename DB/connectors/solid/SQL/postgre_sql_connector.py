@@ -1,6 +1,6 @@
 import psycopg2
 
-from connectors.abstract.sql_connector import SQLConnector
+from DB.connectors.abstract.SQL.sql_connector import SQLConnector
 
 
 class PostgreSqlConnector(SQLConnector):
