@@ -26,14 +26,6 @@ class TestConnectors:
         connector = config_data.get('db').get('engine')
         assert connector == 'postgresql'
 
-    def test_connector(self, config_data):
-        connector_factory = ConnectorFactory(
-            host=config_data.get('db').get('host'),
-            port=config_data.get('db').get('port'),
-            user=config_data.get('db').get('user'),
-            password=config_data.get('db').get('password'),
-            database=config_data.get('db').get('database'),
-            engine_name=config_data.get('db').get('engine')
-        )
+    def test_connector(self, connector_factory):
         sql_connector = connector_factory.get_sql_connector()
         assert isinstance(sql_connector, PostgreSqlConnector)
