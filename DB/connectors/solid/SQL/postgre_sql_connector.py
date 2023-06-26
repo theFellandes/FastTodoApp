@@ -7,11 +7,11 @@ class PostgreSqlConnector(SQLConnector):
 
     def connect(self):
         self._connection: psycopg2.connection = psycopg2.connect(
-            host=self._host,
-            port=self._port,
-            database=self._database,
-            user=self._user,
-            password=self._password
+            host=self.host,
+            port=self.port,
+            database=self.database,
+            user=self.user,
+            password=self.password
         )
         self._cursor: psycopg2.cursor = self._connection.cursor()
 
