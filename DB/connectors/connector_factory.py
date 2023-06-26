@@ -8,33 +8,33 @@ from DB.connectors.solid.SQL.postgre_sql_connector import PostgreSqlConnector
 class ConnectorFactory(BaseModel):
     class Config:
         extra = Extra.forbid
-    _host: str
-    _port: str
-    _user: str
-    _password: str
-    _database: str
-    _engine_name: str
+    host: str
+    port: str
+    user: str
+    password: str
+    database: str
+    engine_name: str
 
     # TODO: Add validation for attributes. Also add validation for engine_name
 
     def get_sql_connector(self) -> SQLConnector:
         """ Returns a SQLConnector """
-        match self._engine_name:
+        match self.engine_name:
             case 'postgresql':
                 return PostgreSqlConnector(
-                    host=self._host,
-                    port=self._port,
-                    user=self._user,
-                    password=self._password,
-                    database=self._database
+                    host=self.host,
+                    port=self.port,
+                    user=self.user,
+                    password=self.password,
+                    database=self.database
                 )
             case 'mysql':
                 return MySqlConnector(
-                    host=self._host,
-                    port=self._port,
-                    user=self._user,
-                    password=self._password,
-                    database=self._database
+                    host=self.host,
+                    port=self.port,
+                    user=self.user,
+                    password=self.password,
+                    database=self.database
                 )
             case _:
                 raise UnsupportedDatabaseException('Unsupported database entered.')
