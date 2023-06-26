@@ -9,8 +9,8 @@ class SQLConnector(BaseModel):
     user: str
     password: str
     database: str
-    _connection: object
-    _cursor: object
+    connection: object
+    cursor: object
 
     def __enter__(self):
         self.connect()

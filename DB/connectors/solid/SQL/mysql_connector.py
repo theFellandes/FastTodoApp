@@ -6,24 +6,24 @@ from DB.connectors.abstract.SQL.sql_connector import SQLConnector
 class MySqlConnector(SQLConnector):
 
     def connect(self):
-        self._connection = mysql.connector.connect(
+        self.connection = mysql.connector.connect(
             host=self.host,
             port=self.port,
             database=self.database,
             user=self.user,
             password=self.password
         )
-        self._cursor = self._connection.cursor()
+        self.cursor = self.connection.cursor()
 
     def disconnect(self):
-        self._cursor.close()
-        self._connection.close()
+        self.cursor.close()
+        self.connection.close()
 
     def execute(self, query: str):
-        self._cursor.execute(query)
+        self.cursor.execute(query)
 
     def fetch(self, query: str):
-        return self._cursor.fetchall()
+        return self.cursor.fetchall()
 
     def commit(self):
-        self._connection.commit()
+        self.connection.commit()
