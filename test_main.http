@@ -15,16 +15,30 @@ GET http://127.0.0.1:8000/todos/1
 Accept: application/json
 
 ###
-#
-#POST http://127.0.0.1:8000/todos/create
-#Content-Type: application/json
-#Data-Raw: {
-#  "id_": "1",
-#  "name": "Test",
-#  "description": "Test"
-#}
+
+POST http://127.0.0.1:8000/todos/create
+Content-Type: application/json
+
+{
+  "id_": "1",
+  "name": "Test",
+  "description": "Test"
+}
 
 ###
 
 DELETE http://127.0.0.1:8000/todos/1
 Accept: application/json
+
+###
+
+PUT http://127.0.0.1:8000/todos/1
+Content-Type: application/json
+
+{
+  "id_": "1",
+  "name": "Test",
+  "description": "Test"
+}
+
+###

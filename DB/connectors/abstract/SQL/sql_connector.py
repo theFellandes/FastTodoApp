@@ -5,10 +5,12 @@ class SQLConnector(BaseModel):
     class Config:
         extra = Extra.forbid
     host: str
-    port: int
+    port: str
     user: str
     password: str
     database: str
+    _connection: object
+    _cursor: object
 
     def __enter__(self):
         self.connect()

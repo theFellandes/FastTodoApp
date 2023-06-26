@@ -4,9 +4,10 @@ from pydantic import BaseModel, Extra
 class Task(BaseModel):
     class Config:
         extra = Extra.forbid
-    id_: str
+    id_: int
     name: str
     description: str
+    date: str
 
     def create_task(self):
         """ Creates task for given attributes """
