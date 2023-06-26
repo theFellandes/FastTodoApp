@@ -13,7 +13,8 @@ def test_connector():
         engine_name=config_data.get('db').get('engine')
     )
     sql_connector = connector_factory.get_sql_connector()
-    print(sql_connector.execute('SELECT * FROM tasks;'))
+    with sql_connector:
+        sql_connector.fetch('SELECT * FROM tasks;')
 
 
 if __name__ == '__main__':
